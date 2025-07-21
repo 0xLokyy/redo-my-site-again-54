@@ -8,16 +8,16 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Social Media Links */}
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="hover:text-violet-600">
+            <Button variant="ghost" size="icon" className="hover:text-white hover:bg-violet-600">
               <Twitter className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="hover:text-violet-600">
+            <Button variant="ghost" size="icon" className="hover:text-white hover:bg-violet-600">
               <Github className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="hover:text-violet-600">
+            <Button variant="ghost" size="icon" className="hover:text-white hover:bg-violet-600">
               <Linkedin className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="hover:text-violet-600">
+            <Button variant="ghost" size="icon" className="hover:text-white hover:bg-violet-600">
               <Instagram className="w-5 h-5" />
             </Button>
           </div>
