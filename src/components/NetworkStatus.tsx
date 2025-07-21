@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, AlertTriangle, Wifi } from "lucide-react";
+import { CheckCircle, Wifi } from "lucide-react";
 import { useWallet } from "@/hooks/useWallet";
 
 const NetworkStatus = () => {
@@ -10,15 +10,6 @@ const NetworkStatus = () => {
       <Badge variant="outline" className="flex items-center gap-1">
         <Wifi className="w-3 h-3" />
         Non connecté
-      </Badge>
-    );
-  }
-
-  if (!isCorrectNetwork) {
-    return (
-      <Badge variant="destructive" className="flex items-center gap-1">
-        <AlertTriangle className="w-3 h-3" />
-        Mauvais réseau
       </Badge>
     );
   }

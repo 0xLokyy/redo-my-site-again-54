@@ -45,7 +45,10 @@ export const useWallet = () => {
       const chainId = await window.ethereum.request({
         method: 'eth_chainId',
       });
-      setIsCorrectNetwork(chainId === MONAD_TESTNET.chainId);
+      // Convertir le chainId en nombre pour comparaison
+      const currentChainId = parseInt(chainId, 16);
+      const targetChainId = parseInt(MONAD_TESTNET.chainId, 16);
+      setIsCorrectNetwork(currentChainId === targetChainId);
     } catch (error) {
       console.error('Erreur lors de la vérification du réseau:', error);
       setIsCorrectNetwork(false);
@@ -62,9 +65,12 @@ export const useWallet = () => {
   };
 
   const handleChainChanged = (chainId: string) => {
-    setIsCorrectNetwork(chainId === MONAD_TESTNET.chainId);
+    // Convertir le chainId en nombre pour comparaison
+    const currentChainId = parseInt(chainId, 16);
+    const targetChainId = parseInt(MONAD_TESTNET.chainId, 16);
+    setIsCorrectNetwork(currentChainId === targetChainId);
     // Recharger la page pour éviter les problèmes de state
-    window.location.reload();
+    // window.location.reload(); // Commenté pour éviter le rechargement automatique
   };
 
   const connect = async () => {

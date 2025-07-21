@@ -39,9 +39,9 @@ const WalletButton = () => {
               Monad
             </Badge>
           ) : (
-            <Badge variant="destructive" className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">
+            <Badge variant="outline" className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">
               <AlertTriangle className="w-3 h-3 mr-1" />
-              Réseau
+              Autre réseau
             </Badge>
           )}
         </Button>
