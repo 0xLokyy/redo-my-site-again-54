@@ -17,15 +17,15 @@ const Header = () => {
           
           {/* Centered Navigation */}
           <nav className="hidden md:flex items-center justify-center space-x-6 flex-1">
-            <Button variant="secondary" className="bg-primary text-primary-foreground">
+            <Button variant="secondary" className="bg-violet-600 text-white hover:bg-violet-700">
               <BarChart3 className="w-4 h-4 mr-2" />
               Dashboard
             </Button>
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary">
+            <Button variant="ghost" className="text-muted-foreground hover:text-violet-600">
               <Wallet className="w-4 h-4 mr-2" />
               Portfolio
             </Button>
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary">
+            <Button variant="ghost" className="text-muted-foreground hover:text-violet-600">
               <TrendingUp className="w-4 h-4 mr-2" />
               Analytics
             </Button>
