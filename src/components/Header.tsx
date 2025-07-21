@@ -21,11 +21,11 @@ const Header = () => {
               <BarChart3 className="w-4 h-4 mr-2" />
               Dashboard
             </Button>
-            <Button variant="ghost" className="text-muted-foreground hover:text-violet-600">
+            <Button variant="ghost" className="text-muted-foreground hover:text-white hover:bg-violet-600">
               <Wallet className="w-4 h-4 mr-2" />
               Portfolio
             </Button>
-            <Button variant="ghost" className="text-muted-foreground hover:text-violet-600">
+            <Button variant="ghost" className="text-muted-foreground hover:text-white hover:bg-violet-600">
               <TrendingUp className="w-4 h-4 mr-2" />
               Analytics
             </Button>
