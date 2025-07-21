@@ -1,7 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useWallet } from "@/hooks/useWallet";
+import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
 
 const HeroSection = () => {
+  const { isConnected, isCorrectNetwork } = useWallet();
+  const [walletAddress, setWalletAddress] = useState("");
+
+  const handleAnalyze = () => {
+    if (!walletAddress.trim()) {
+      toast({
+        title: "Adresse requise",
+        description: "Veuillez entrer une adresse de wallet à analyser.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!walletAddress.match(/^0x[a-fA-F0-9]{40}$/)) {
+      toast({
+        title: "Adresse invalide",
+        description: "Veuillez entrer une adresse Ethereum valide.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // TODO: Implémenter l'analyse du wallet
+    toast({
+      title: "Analyse en cours",
+      description: `Analyse du wallet ${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)} sur Monad Testnet.`,
+    });
+  };
+
   return (
     <section className="relative min-h-[calc(100vh-200px)] flex items-center justify-center overflow-hidden">
       {/* Background gradient effects */}
@@ -28,16 +60,27 @@ const HeroSection = () => {
           <Input 
             type="text" 
             placeholder="Enter wallet address (0x...)"
+            value={walletAddress}
+            onChange={(e) => setWalletAddress(e.target.value)}
             className="bg-card border-border text-foreground placeholder:text-muted-foreground px-4 py-6 text-lg min-w-[300px] sm:flex-1"
           />
           <Button 
             size="lg" 
+            onClick={handleAnalyze}
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold whitespace-nowrap"
             style={{ boxShadow: 'var(--glow-primary)' }}
           >
             Analyze
           </Button>
         </div>
+        
+        {isConnected && isCorrectNetwork && (
+          <div className="mt-6 text-center">
+            <p className="text-sm text-muted-foreground">
+              ✅ Connecté au réseau Monad Testnet
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

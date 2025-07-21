@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { BarChart3, Wallet, TrendingUp } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import WalletButton from "@/components/WalletButton";
+import NetworkStatus from "@/components/NetworkStatus";
 
 const Header = () => {
   return (
@@ -33,10 +35,9 @@ const Header = () => {
 
           {/* Theme Toggle and Connect Wallet */}
           <div className="flex items-center gap-3">
+            <NetworkStatus />
             <ThemeToggle />
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Connect Wallet
-            </Button>
+            <WalletButton />
           </div>
         </div>
       </div>
