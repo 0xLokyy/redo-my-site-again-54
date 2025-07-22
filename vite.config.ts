@@ -8,6 +8,13 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    proxy: {
+      '/blockvision-proxy': {
+        target: 'https://monad.blockvision.org',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/blockvision-proxy/, '')
+      }
+    }
   },
   plugins: [
     react(),
