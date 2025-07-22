@@ -14,7 +14,7 @@ export const MONAD_TESTNET = {
 // Fonction pour ajouter le réseau Monad Testnet à MetaMask
 export const addMonadTestnetToWallet = async () => {
   if (!window.ethereum) {
-    throw new Error('MetaMask n\'est pas installé');
+    throw new Error('MetaMask is not installed');
   }
 
   try {
@@ -24,7 +24,7 @@ export const addMonadTestnetToWallet = async () => {
     });
     return true;
   } catch (error) {
-    console.error('Erreur lors de l\'ajout du réseau:', error);
+    console.error('Error adding network:', error);
     throw error;
   }
 };
@@ -32,7 +32,7 @@ export const addMonadTestnetToWallet = async () => {
 // Fonction pour changer vers le réseau Monad Testnet
 export const switchToMonadTestnet = async () => {
   if (!window.ethereum) {
-    throw new Error('MetaMask n\'est pas installé');
+    throw new Error('MetaMask is not installed');
   }
 
   try {
@@ -46,7 +46,7 @@ export const switchToMonadTestnet = async () => {
     if (error.code === 4902) {
       return await addMonadTestnetToWallet();
     }
-    console.error('Erreur lors du changement de réseau:', error);
+    console.error('Error switching network:', error);
     throw error;
   }
 };
@@ -54,7 +54,7 @@ export const switchToMonadTestnet = async () => {
 // Fonction pour connecter le wallet
 export const connectWallet = async () => {
   if (!window.ethereum) {
-    throw new Error('MetaMask n\'est pas installé');
+    throw new Error('MetaMask is not installed');
   }
 
   try {
@@ -73,7 +73,7 @@ export const connectWallet = async () => {
     
     return accounts[0];
   } catch (error) {
-    console.error('Erreur lors de la connexion:', error);
+    console.error('Connection error:', error);
     throw error;
   }
 };
@@ -90,7 +90,7 @@ export const getConnectedAccount = async () => {
     });
     return accounts[0] || null;
   } catch (error) {
-    console.error('Erreur lors de la récupération du compte:', error);
+    console.error('Error retrieving account:', error);
     return null;
   }
 };

@@ -23,7 +23,7 @@ const WalletButton = () => {
         style={{ boxShadow: 'var(--glow-primary)' }}
       >
         <Wallet className="w-4 h-4 mr-2" />
-        {isConnecting ? "Connexion..." : "Connect Wallet"}
+        {isConnecting ? "Connecting..." : "Connect Wallet"}
       </Button>
     );
   }
@@ -49,7 +49,7 @@ const WalletButton = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <div className="px-2 py-1.5">
-          <p className="text-sm font-medium">Wallet connecté</p>
+          <p className="text-sm font-medium">Connected wallet</p>
           <p className="text-xs text-muted-foreground">{formatAddress(account!)}</p>
         </div>
         <DropdownMenuSeparator />
@@ -57,7 +57,7 @@ const WalletButton = () => {
           <>
             <DropdownMenuItem onClick={switchNetwork} className="text-orange-600 dark:text-orange-400">
               <AlertTriangle className="w-4 h-4 mr-2" />
-              Changer vers Monad Testnet
+              Switch to Monad Testnet
             </DropdownMenuItem>
             <DropdownMenuSeparator />
           </>
@@ -66,11 +66,11 @@ const WalletButton = () => {
           onClick={() => window.open('https://testnet.monadexplorer.com', '_blank')}
           className="text-blue-600 dark:text-blue-400"
         >
-          Voir sur l'explorateur
+          View on explorer
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={disconnect} className="text-red-600 dark:text-red-400">
-          Déconnecter
+          Disconnect
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

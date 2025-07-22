@@ -11,8 +11,8 @@ const HeroSection = () => {
   const handleAnalyze = () => {
     if (!walletAddress.trim()) {
       toast({
-        title: "Adresse requise",
-        description: "Veuillez entrer une adresse de wallet à analyser.",
+        title: "Address required",
+        description: "Please enter a wallet address to analyze.",
         variant: "destructive",
       });
       return;
@@ -20,8 +20,8 @@ const HeroSection = () => {
 
     if (!walletAddress.match(/^0x[a-fA-F0-9]{40}$/)) {
       toast({
-        title: "Adresse invalide",
-        description: "Veuillez entrer une adresse Ethereum valide.",
+        title: "Invalid address",
+        description: "Please enter a valid Ethereum address.",
         variant: "destructive",
       });
       return;
@@ -29,8 +29,8 @@ const HeroSection = () => {
 
     // TODO: Implémenter l'analyse du wallet
     toast({
-      title: "Analyse en cours",
-      description: `Analyse du wallet ${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)} sur Monad Testnet.`,
+      title: "Analysis in progress",
+      description: `Analyzing wallet ${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)} on Monad Testnet.`,
     });
   };
 

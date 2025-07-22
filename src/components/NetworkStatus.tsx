@@ -9,7 +9,7 @@ const NetworkStatus = () => {
     return (
       <Badge variant="outline" className="flex items-center gap-1">
         <Wifi className="w-3 h-3" />
-        Non connecté
+        Not connected
       </Badge>
     );
   }

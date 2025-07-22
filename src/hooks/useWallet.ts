@@ -76,8 +76,8 @@ export const useWallet = () => {
   const connect = async () => {
     if (!window.ethereum) {
       toast({
-        title: "Wallet non détecté",
-        description: "Veuillez installer MetaMask pour continuer.",
+        title: "Wallet not detected",
+        description: "Please install MetaMask to continue.",
         variant: "destructive",
       });
       return;
@@ -90,14 +90,14 @@ export const useWallet = () => {
       setIsCorrectNetwork(true);
       
       toast({
-        title: "Wallet connecté",
-        description: "Connexion réussie au réseau Monad Testnet!",
+        title: "Wallet connected",
+        description: "Successfully connected to Monad Testnet!",
       });
     } catch (error: any) {
       console.error('Erreur de connexion:', error);
       toast({
-        title: "Erreur de connexion",
-        description: error.message || "Impossible de se connecter au wallet.",
+        title: "Connection error",
+        description: error.message || "Unable to connect to wallet.",
         variant: "destructive",
       });
     } finally {
@@ -110,14 +110,14 @@ export const useWallet = () => {
       await switchToMonadTestnet();
       setIsCorrectNetwork(true);
       toast({
-        title: "Réseau changé",
-        description: "Connexion au réseau Monad Testnet réussie!",
+        title: "Network switched",
+        description: "Successfully connected to Monad Testnet!",
       });
     } catch (error: any) {
       console.error('Erreur lors du changement de réseau:', error);
       toast({
-        title: "Erreur de réseau",
-        description: error.message || "Impossible de changer de réseau.",
+        title: "Network error",
+        description: error.message || "Unable to switch network.",
         variant: "destructive",
       });
     }
@@ -127,8 +127,8 @@ export const useWallet = () => {
     setAccount(null);
     setIsCorrectNetwork(false);
     toast({
-      title: "Wallet déconnecté",
-      description: "Vous avez été déconnecté avec succès.",
+      title: "Wallet disconnected",
+      description: "You have been successfully disconnected.",
     });
   };
 
