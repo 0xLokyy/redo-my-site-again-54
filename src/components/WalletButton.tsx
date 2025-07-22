@@ -20,6 +20,7 @@ const WalletButton = () => {
         onClick={connect} 
         disabled={isConnecting}
         className="bg-primary hover:bg-primary/90 text-primary-foreground"
+        style={{ boxShadow: 'var(--glow-primary)' }}
       >
         <Wallet className="w-4 h-4 mr-2" />
         {isConnecting ? "Connexion..." : "Connect Wallet"}
