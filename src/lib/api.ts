@@ -29,7 +29,7 @@ export const fetchWalletTokens = async (address: string): Promise<TokenData[]> =
       },
       body: JSON.stringify({
         address: address,
-        chainId: "901"
+        chainId: "10143"
       }),
     });
 
