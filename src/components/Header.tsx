@@ -8,9 +8,9 @@ const Header = () => {
   return (
     <header className="w-full border-b border-border bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="grid grid-cols-3 items-center">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 justify-self-start">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">M</span>
             </div>
@@ -18,7 +18,7 @@ const Header = () => {
           </div>
           
           {/* Centered Navigation */}
-          <nav className="hidden md:flex items-center justify-center space-x-6 flex-1">
+          <nav className="hidden md:flex items-center justify-center space-x-6">
             <Button variant="secondary" className="bg-violet-600 text-white hover:bg-violet-700">
               <BarChart3 className="w-4 h-4 mr-2" />
               Dashboard
@@ -34,7 +34,7 @@ const Header = () => {
           </nav>
 
           {/* Theme Toggle and Connect Wallet */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 justify-self-end">
             <ThemeToggle />
             <WalletButton />
           </div>
