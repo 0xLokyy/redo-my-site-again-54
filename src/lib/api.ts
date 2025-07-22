@@ -1,6 +1,6 @@
 // API configuration and functions for BlockVision
 const BLOCKVISION_API_KEY = "304DjsqViQ7iVi3IVagjYINUbAa";
-const BLOCKVISION_BASE_URL = "/blockvision-proxy/api/v1";
+const BLOCKVISION_BASE_URL = "/blockvision-proxy/v1";
 
 export interface TokenData {
   name: string;
