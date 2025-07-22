@@ -3,12 +3,18 @@ import { Input } from "@/components/ui/input";
 import { useWallet } from "@/hooks/useWallet";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import { fetchWalletTokens, TokenData } from "@/lib/api";
+import TokensList from "@/components/TokensList";
+import { Loader2 } from "lucide-react";
 
 const HeroSection = () => {
   const { isConnected, isCorrectNetwork } = useWallet();
   const [walletAddress, setWalletAddress] = useState("");
+  const [tokens, setTokens] = useState<TokenData[]>([]);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [hasAnalyzed, setHasAnalyzed] = useState(false);
 
-  const handleAnalyze = () => {
+  const handleAnalyze = async () => {
     if (!walletAddress.trim()) {
       toast({
         title: "Address required",
@@ -27,11 +33,35 @@ const HeroSection = () => {
       return;
     }
 
-    // TODO: Implémenter l'analyse du wallet
-    toast({
-      title: "Analysis in progress",
-      description: `Analyzing wallet ${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)} on Monad Testnet.`,
-    });
+    setIsAnalyzing(true);
+    setHasAnalyzed(false);
+    
+    try {
+      toast({
+        title: "Analysis in progress",
+        description: `Analyzing wallet ${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)} on Monad Testnet.`,
+      });
+
+      const tokenData = await fetchWalletTokens(walletAddress);
+      setTokens(tokenData);
+      setHasAnalyzed(true);
+      
+      toast({
+        title: "Analysis complete!",
+        description: `Found ${tokenData.length} token${tokenData.length !== 1 ? 's' : ''} in this wallet.`,
+      });
+    } catch (error) {
+      console.error('Analysis error:', error);
+      toast({
+        title: "Analysis failed",
+        description: error instanceof Error ? error.message : "Unable to analyze wallet. Please try again.",
+        variant: "destructive",
+      });
+      setTokens([]);
+      setHasAnalyzed(false);
+    } finally {
+      setIsAnalyzing(false);
+    }
   };
 
   return (
@@ -67,12 +97,27 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             onClick={handleAnalyze}
+            disabled={isAnalyzing}
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold whitespace-nowrap"
             style={{ boxShadow: 'var(--glow-primary)' }}
           >
-            Analyze
+            {isAnalyzing ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Analyzing...
+              </>
+            ) : (
+              'Analyze'
+            )}
           </Button>
         </div>
+        
+        {/* Results Section */}
+        {hasAnalyzed && (
+          <div className="mt-16">
+            <TokensList tokens={tokens} walletAddress={walletAddress} />
+          </div>
+        )}
       </div>
     </section>
   );
