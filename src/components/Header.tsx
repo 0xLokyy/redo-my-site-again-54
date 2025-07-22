@@ -35,7 +35,6 @@ const Header = () => {
 
           {/* Theme Toggle and Connect Wallet */}
           <div className="flex items-center gap-3">
-            <NetworkStatus />
             <ThemeToggle />
             <WalletButton />
           </div>

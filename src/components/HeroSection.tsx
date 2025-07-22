@@ -73,14 +73,6 @@ const HeroSection = () => {
             Analyze
           </Button>
         </div>
-        
-        {isConnected && isCorrectNetwork && (
-          <div className="mt-6 text-center">
-            <p className="text-sm text-muted-foreground">
-              ✅ Connecté au réseau Monad Testnet
-            </p>
-          </div>
-        )}
       </div>
     </section>
   );
