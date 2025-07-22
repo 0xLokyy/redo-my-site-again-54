@@ -1,6 +1,6 @@
 // API configuration and functions for BlockVision
 const BLOCKVISION_API_KEY = "304DjsqViQ7iVi3IVagjYINUbAa";
-const BLOCKVISION_BASE_URL = "https://api.blockvision.org/v2";
+const BLOCKVISION_BASE_URL = "https://monad.blockvision.org/api/v1";
 
 export interface TokenData {
   name: string;
@@ -21,7 +21,7 @@ export interface BlockVisionResponse {
 
 export const fetchWalletTokens = async (address: string): Promise<TokenData[]> => {
   try {
-    const response = await fetch(`${BLOCKVISION_BASE_URL}/monad/account/tokens`, {
+    const response = await fetch(`${BLOCKVISION_BASE_URL}/account/token-list`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
